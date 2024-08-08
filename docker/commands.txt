@@ -1,0 +1,9 @@
+docker volume create pg_data
+
+docker build -t postgres_image .
+
+docker run --name postgres_container -d -p 5432:5432 -v pg_data:/var/lib/postgresql/data postgres_image
+
+docker stop postgres_container
+
+docker start postgres_container
